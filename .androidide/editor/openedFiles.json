@@ -49,14 +49,14 @@
       "file": "/storage/emulated/0/AndroidIDEProjects/CallMonitoringApp/app/src/main/java/com/yourpackage/callmonitoringapp/CallStateReceiver.java",
       "selection": {
         "end": {
-          "column": 0,
-          "index": 4337,
-          "line": 101
+          "column": 28,
+          "index": 616,
+          "line": 18
         },
         "start": {
-          "column": 0,
-          "index": 4337,
-          "line": 101
+          "column": 28,
+          "index": 616,
+          "line": 18
         }
       }
     }
