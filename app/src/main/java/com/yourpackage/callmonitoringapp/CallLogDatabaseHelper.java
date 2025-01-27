@@ -22,15 +22,16 @@ public class CallLogDatabaseHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-        String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + "("
-                + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + COLUMN_PHONE_NUMBER + " TEXT, "
-                + COLUMN_CALL_TYPE + " TEXT, "
-                + COLUMN_DURATION + " INTEGER)";
-        db.execSQL(CREATE_TABLE);
-    }
+   @Override
+public void onCreate(SQLiteDatabase db) {
+    String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + "("
+            + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + COLUMN_PHONE_NUMBER + " TEXT, "  // Make phone number unique
+            + COLUMN_CALL_TYPE + " TEXT, "
+            + COLUMN_DURATION + " INTEGER" + ")";
+    db.execSQL(CREATE_TABLE);
+}
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

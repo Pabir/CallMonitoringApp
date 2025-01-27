@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        
+        requestPermissions();
 
         if (!hasRequiredPermissions()) {
             requestPermissions();
@@ -39,15 +41,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private boolean hasRequiredPermissions() {
+    public boolean hasRequiredPermissions() {
         return ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED &&
-                ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CALL_LOG) == PackageManager.PERMISSION_GRANTED;
+                ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CALL_LOG) == PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(this, Manifest.permission.FOREGROUND_SERVICE) == PackageManager.PERMISSION_GRANTED;
     }
 
-    private void requestPermissions() {
+    public void requestPermissions() {
         ActivityCompat.requestPermissions(this, new String[]{
-                Manifest.permission.READ_PHONE_STATE,
-                Manifest.permission.READ_CALL_LOG,
+            Manifest.permission.READ_PHONE_STATE,
+            Manifest.permission.READ_CALL_LOG,
+            Manifest.permission.CALL_PHONE,
+            Manifest.permission.FOREGROUND_SERVICE
         }, PERMISSION_REQUEST_CODE);
     }
 
